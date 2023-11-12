@@ -111,34 +111,6 @@ const UpdateProduct = () => {
           <div className="col-md-9">
             <h1>Update Product</h1>
             <div className="m-1 w-75">
-              <div className="mb-3">
-                <input
-                  type="text"
-                  value={name}
-                  placeholder="write a name"
-                  className="form-control"
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </div>
-              <div className="mb-3">
-                <textarea
-                  type="text"
-                  value={description}
-                  placeholder="write a description"
-                  className="form-control"
-                  onChange={(e) => setDescription(e.target.value)}
-                />
-              </div>
-
-              <div className="mb-3">
-                <input
-                  type="number"
-                  value={price}
-                  placeholder="write a Price"
-                  className="form-control"
-                  onChange={(e) => setPrice(e.target.value)}
-                />
-              </div>
               <Select
                 bordered={false}
                 placeholder="Select a category"
@@ -181,13 +153,41 @@ const UpdateProduct = () => {
                 ) : (
                   <div className="text-center">
                     <img
-                      src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${id}`}
+                        src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${id}`}
                       alt="product_photo"
                       height={"200px"}
                       className="img img-responsive"
                     />
                   </div>
                 )}
+              </div>
+              <div className="mb-3">
+                <input
+                  type="text"
+                  value={name}
+                  placeholder="write a name"
+                  className="form-control"
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+              <div className="mb-3">
+                <textarea
+                  type="text"
+                  value={description}
+                  placeholder="write a description"
+                  className="form-control"
+                  onChange={(e) => setDescription(e.target.value)}
+                />
+              </div>
+
+              <div className="mb-3">
+                <input
+                  type="number"
+                  value={price}
+                  placeholder="write a Price"
+                  className="form-control"
+                  onChange={(e) => setPrice(e.target.value)}
+                />
               </div>
               <div className="mb-3">
                 <input
@@ -198,7 +198,7 @@ const UpdateProduct = () => {
                   onChange={(e) => setQuantity(e.target.value)}
                 />
               </div>
-               <div className="mb-3">
+              <div className="mb-3">
                 <Select
                   bordered={false}
                   placeholder="Select Shipping "
