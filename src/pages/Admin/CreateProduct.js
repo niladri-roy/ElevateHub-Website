@@ -64,7 +64,7 @@ const CreateProduct = () => {
 
   return (
     <Layout title={"Dashboard - Create Product"}>
-      <div className="container-fluid m-3 p-3">
+      <div className="container-fluid m-3 p-3 dashboard">
         <div className="row">
           <div className="col-md-3">
             <AdminMenu />
@@ -72,33 +72,6 @@ const CreateProduct = () => {
           <div className="col-md-9">
             <h1>Create Product</h1>
             <div className="m-1 w-75">
-              <div className="mb-3">
-                <input
-                  type="text"
-                  value={name}
-                  placeholder="write a name"
-                  className="form-control"
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </div>
-              <div className="mb-3">
-                <textarea
-                  type="text"
-                  value={description}
-                  placeholder="write a description"
-                  className="form-control"
-                  onChange={(e) => setDescription(e.target.value)}
-                />
-              </div>
-              <div className="mb-3">
-                <input
-                  type="number"
-                  value={price}
-                  placeholder="write a Price"
-                  className="form-control"
-                  onChange={(e) => setPrice(e.target.value)}
-                />
-              </div>
               <Select
                 bordered={false}
                 placeholder="Select a category"
@@ -121,7 +94,7 @@ const CreateProduct = () => {
                   <input
                     type="file"
                     name="photo"
-                    accept="image/*" //the * means any file type of photo is acceptable
+                    accept="image/*"
                     onChange={(e) => setPhoto(e.target.files[0])}
                     hidden
                   />
@@ -138,6 +111,34 @@ const CreateProduct = () => {
                     />
                   </div>
                 )}
+              </div>
+              <div className="mb-3">
+                <input
+                  type="text"
+                  value={name}
+                  placeholder="write a name"
+                  className="form-control"
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+              <div className="mb-3">
+                <textarea
+                  type="text"
+                  value={description}
+                  placeholder="write a description"
+                  className="form-control"
+                  onChange={(e) => setDescription(e.target.value)}
+                />
+              </div>
+
+              <div className="mb-3">
+                <input
+                  type="number"
+                  value={price}
+                  placeholder="write a Price"
+                  className="form-control"
+                  onChange={(e) => setPrice(e.target.value)}
+                />
               </div>
               <div className="mb-3">
                 <input
