@@ -27,19 +27,16 @@ const CreateCategory = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("something went wrong in input form");
+      // toast.error("somthing went wrong in input form");
     }
   };
 
-  //get all category
+  //get all cat
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`);
-      if (data.success) {
-        const sortedCategories = data.category.sort((a, b) => {
-          return a.name.localeCompare(b.name);
-        })
-        setCategories(sortedCategories);
+      if (data?.success) {
+        setCategories(data?.category);
       }
     } catch (error) {
       console.log(error);
@@ -59,7 +56,7 @@ const CreateCategory = () => {
         `${process.env.REACT_APP_API}/api/v1/category/update-category/${selected._id}`,
         { name: updatedName }
       );
-      if (data.success) {
+      if (data?.success) {
         toast.success(`${updatedName} is updated`);
         setSelected(null);
         setUpdatedName("");
@@ -69,29 +66,29 @@ const CreateCategory = () => {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error("Something went wrong");
+      console.log(error);
     }
   };
   //delete category
   const handleDelete = async (pId) => {
     try {
       const { data } = await axios.delete(
-        `${process.env.REACT_APP_API}/api/v1/category/delete-category/${pId}`
+        `/api/v1/category/delete-category/${pId}`
       );
       if (data.success) {
-        toast.success(`Category is deleted`);
+        toast.success(`category is deleted`);
 
         getAllCategory();
       } else {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error("Something went wrong");
+      toast.error("Somtihing went wrong");
     }
   };
   return (
     <Layout title={"Dashboard - Create Category"}>
-      <div className="container-fluid m-3 p-3">
+      <div className="container-fluid m-3 p-3 dashboard">
         <div className="row">
           <div className="col-md-3">
             <AdminMenu />
